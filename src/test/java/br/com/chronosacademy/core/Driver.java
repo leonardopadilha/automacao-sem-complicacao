@@ -10,9 +10,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+
 public class Driver {
     private static WebDriver driver;
     private static WebDriverWait wait;
+    private static String nomeCenario;
+    private static File diretorio;
+
+    public static File getDiretorio() {
+        return diretorio;
+    }
+
+    public static String getNomeCenario() {
+        return nomeCenario;
+    }
+
+    public static void criaDiretorio() {
+        String caminho = "src/test/resources/evidencias";
+        diretorio = new File(caminho + "/" + nomeCenario);
+        diretorio.mkdir();
+    }
+
+    public static void setNomeCenario(String nomeCenario) {
+        Driver.nomeCenario = nomeCenario;
+    }
 
     public Driver(Browser navegador) {
         switch (navegador) {
