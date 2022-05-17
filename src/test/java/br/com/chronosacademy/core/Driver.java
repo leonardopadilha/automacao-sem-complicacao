@@ -2,6 +2,9 @@ package br.com.chronosacademy.core;
 
 import br.com.chronosacademy.automacaoWeb.enums.Browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,12 +14,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Driver {
     private static WebDriver driver;
     private static WebDriverWait wait;
     private static String nomeCenario;
     private static File diretorio;
+    private static  int numPrint;
 
     public static File getDiretorio() {
         return diretorio;
@@ -30,6 +35,14 @@ public class Driver {
         String caminho = "src/test/resources/evidencias";
         diretorio = new File(caminho + "/" + nomeCenario);
         diretorio.mkdir();
+        numPrint = 0;
+    }
+
+    public static void printScreen(String passo) throws IOException {
+        numPrint++;
+        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String caminho = diretorio.getPath() + "/" + passo + ".png";
+        FileUtils.copyFile(file, new File(caminho));
     }
 
     public static void setNomeCenario(String nomeCenario) {

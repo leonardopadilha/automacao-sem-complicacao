@@ -13,6 +13,7 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class LoginSteps {
@@ -35,12 +36,13 @@ public class LoginSteps {
     }
 
     @Dado("que a modal esteja sendo exibida")
-    public void queAModalEstejaSendoExibida() {
+    public void queAModalEstejaSendoExibida() throws IOException {
         Driver.getDriver().get("https://advantageonlineshopping.com/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
         loginPage.visibilityOfBtnFechar();
         loginPage.aguardaLoader();
+        Driver.printScreen("tela_login");
     }
     @Quando("for realizado um clique fora da modal")
     public void forRealizadoUmCliqueForaDaModal() {
