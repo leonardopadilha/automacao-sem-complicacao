@@ -1,5 +1,7 @@
 .idea
 target
+*.iml
+src/test/resources/evidencias/*/.png
 TesteWeb.java
 ResultadoPesquisaMap.java
 ResultadoPesquisaPage.java
