@@ -7,7 +7,7 @@ public class MyAccountMap {
     @FindBy(css = "#menuUser")
     public WebElement linkUser;
 
-    @FindBy(css = "#loginMobileMiniTitle [translate='My_account']")
+    @FindBy(css = "#loginMiniTitle [translate='My_account']")
     public WebElement linkMyAccount;
 
     @FindBy(css = "[href*='accountDetails']")
@@ -21,4 +21,7 @@ public class MyAccountMap {
 
     @FindBy(css = ".deleteRed")
     public WebElement btnYes;
+
+    @FindBy(css = ".modificationTwo > p")
+    public WebElement textDelete;
 }

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        tags = "@loginCRUD",
+        tags = "@CRUD",
         glue = "br.com.chronosacademy.steps",
         plugin = {
                 "json:target/reports/CucumberReports.json",
