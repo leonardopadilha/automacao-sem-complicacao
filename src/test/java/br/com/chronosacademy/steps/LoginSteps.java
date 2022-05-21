@@ -2,7 +2,6 @@ package br.com.chronosacademy.steps;
 
 import br.com.chronosacademy.automacaoWeb.enums.Browser;
 import br.com.chronosacademy.core.Driver;
-import br.com.chronosacademy.maps.NewAccountMap;
 import br.com.chronosacademy.pages.LoginPage;
 import br.com.chronosacademy.pages.NewAccountPage;
 import io.cucumber.java.After;
@@ -111,5 +110,13 @@ public class LoginSteps {
     public void oBotaoSignInDevePermanecerDesabilitado() {
         boolean enabled = loginPage.isBtnSignIn();
         Assert.assertFalse(enabled);
+    }
+
+    @Dado("que esteja logado no sistema com")
+    public void queEstejaLogadoNoSistemaCom(Map<String, String> map) throws IOException {
+        this.queAModalEstejaSendoExibida();
+        this.osCamposDeLoginForemPreenchidosComOsValores(map);
+        this.forRealizadoOCliqueNoBotaoSignIn();
+        this.deveSerPossivelLogarNoSistema();
     }
 }
