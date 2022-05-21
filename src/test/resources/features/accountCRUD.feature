@@ -17,7 +17,7 @@
       Dado que a modal esteja sendo exibida
       Quando os campos de login forem preenchidos com os valores
         |usuario  |chronosLeo           |
-        |senha    |chronosLeo@teste.com |
+        |senha    |Senha123             |
         |remember |false                |
       Quando for realizado o clique no botao sign in
       Entao deve ser possivel logar no sistema
@@ -26,5 +26,5 @@
       Cenario: Realizar alteracao CRUD
         Dado que esteja logado no sistema com
           |usuario  |chronosLeo           |
-          |senha    |chronosLeo@teste.com |
+          |senha    |Senha123             |
           |remember |false                |
